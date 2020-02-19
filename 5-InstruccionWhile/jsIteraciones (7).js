@@ -3,14 +3,14 @@ function mostrar()
 
 	var contador=0;
 	var acumulador=0;
-  var respuesta;
+  var respuesta = 'si';
 
-  while(respuesta != 'si'){
+  do{
     acumulador = acumulador + parseInt(prompt("Ingrese un numero"));
     contador ++;
-    respuesta = prompt("Dejar de acumular");
+    respuesta = prompt("Seguir acumulando");
 
-  }
+  }while(respuesta == 'si')
 
 
 document.getElementById('suma').value=acumulador;
