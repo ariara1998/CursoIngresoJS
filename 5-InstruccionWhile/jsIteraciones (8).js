@@ -1,7 +1,7 @@
 function mostrar()
 {
 
-	var contador=0;
+	var flag=0;
 	var positivo=0;
 	var negativo=1;
 	var numero;
@@ -17,13 +17,13 @@ function mostrar()
 		}
 		else{
 			negativo *= numero;
-			contador++;
+			flag = 1;
 		}
 		respuesta = prompt("Seguir acumulando");
 
 	}while(respuesta == 'si');
 
-	if(contador == 0){
+	if(flag == 0){
 		negativo = 0;
 	}
 
