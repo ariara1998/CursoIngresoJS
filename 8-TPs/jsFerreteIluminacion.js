@@ -10,59 +10,66 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */
 function CalcularPrecio ()
 {
-    var lamparas;
+    var numLamparas;
     var marca;
-    var precio;
+    var precioInical;
+    var descuento;
+    var precioFinal;
+    var IIBB;
 
-    lamparas = document.getElementById("Cantidad").value;
-    lamparas = parseInt(lamparas);
+    numLamparas = document.getElementById("Cantidad").value;
+    numLamparas = parseInt(numLamparas);
     marca = document.getElementById("Marca").value;
 
-    precio = lamparas * 35 ;
+    precioInical = numLamparas * 35 ;
 
-    if(lamparas >= 6){
-        precio = precio / 2;
-        precio = parseFloat(precio).toFixed(2);
+    if(numLamparas >= 6){
+        descuento = precioInical / 2;
     }
-    else if(lamparas == 5){
+    else if(numLamparas == 5){
         switch(marca){
             case "ArgentinaLuz":
-                precio = precio * 40 / 100;
-                precio = parseFloat(precio).toFixed(2);
+                descuento = precioInical * 40 / 100;
                 break;
             default:
-                precio = precio * 30 / 100;
-                precio = parseFloat(precio).toFixed(2);
+                descuento = precioInical * 30 / 100;
         }
     }
-    else if(lamparas == 4){
+    else if(numLamparas == 4){
         switch(marca){
             case "ArgentinaLuz":
             case "FelipeLamparas":
-               precio = precio * 25 / 100;
-               precio = parseFloat(precio).toFixed(2);
+               descuento = precioInical * 25 / 100;
                break;
             default:
-              precio = precio * 20 / 100;
-              precio = parseFloat(precio).toFixed(2);
+              descuento = precioInical * 20 / 100;
       }
     }
-    else if(lamparas == 3){
+    else if(numLamparas == 3){
         switch(marca){
             case "ArgentinaLuz":
-               precio = precio * 15 / 100;
-               precio = parseFloat(precio).toFixed(2);
+               descuento = precioInical * 15 / 100
                break;
             case "FelipeLamparas":
-               precio = precio * 10 / 100;
-               precio = parseFloat(precio).toFixed(2);
+               descuento = precioInical * 10 / 100;
                break;
             default:
-               precio = precio * 5 / 100;
-               precio = parseFloat(precio).toFixed(2);
+              descuento = precioInical * 5 / 100;
         }
+    }        
+    else{
+        descuento = 0;
+        }
+
+    precioFinal = precioInical - descuento;
+
+    if(precioFinal>120){
+        IIBB = precioFinal * 10 /100
+        precioFinal = precioFinal + IIBB;
+        alert("Usteded pago " + IIBB + " de IIBB.");
     }
 
+    document.getElementById("precioDescuento").value = precioFinal;
 
-    alert (precio);
+
 }
