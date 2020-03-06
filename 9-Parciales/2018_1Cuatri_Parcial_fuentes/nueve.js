@@ -8,6 +8,7 @@ var contadorTempPar=0;
 var marcaMasPesado;
 var pesoMaxMenosCero;
 var contadorMenosCero=0;
+var flag=0;
 var acumuladorPeso=0;
 var contadorPeso=0;
 var promedioPeso;
@@ -29,9 +30,10 @@ do{
     if(temperatura%2 == 0){
         contadorTempPar++;
     }
-    if(temperatura<=0 && (contadorPeso == 0 || peso>pesoMaxMenosCero)){
+    if(temperatura<=0 && (flag == 0 || peso>pesoMaxMenosCero)){
         pesoMaxMenosCero=peso;
         marcaMasPesado=marca;
+        flag=1;
     }
     if(temperatura<0){
         contadorMenosCero++;
